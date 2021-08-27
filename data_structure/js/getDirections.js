@@ -40,3 +40,5 @@ const matrix2 = [
 
 const result5 = getDirections(matrix2, 0, 2);
 console.log(result5);
+
+// 왜 git이 안되냐??
