@@ -16,7 +16,6 @@ class Tree {
 	// 트리 안에 해당 값이 포함되어 있는지 확인하는 메서드를 만듭니다.
   contains(value) {
 		// TODO: 값이 포함되어 있다면 true를 반환하세요. 
-    console.log(this.value);
     if (this.value === value) {
       return true;
     }
