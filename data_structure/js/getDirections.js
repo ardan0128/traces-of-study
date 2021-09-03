@@ -1,14 +1,44 @@
 function getDirections(matrix, from, to) {
   // TODO: 여기에 코드를 작성합니다.
+
   //from에서 갈수 있는 경우
   let fromAble = [];
+  let tempAble = [];
 
   for(let i = 0; i < matrix[from].length; i++){
     if(matrix[from][i] === 1){
-      let obj = {}
+      let obj = {};
       obj[`course`] = i;
       obj[`nextCourse`] = null;
       fromAble.push(obj);
+
+      let tempObj = {};
+      tempObj[`course`] = i;
+      tempObj[`nextCourse`] = null;
+      tempAble.push(tempObj);
+    }
+  }
+
+  function containCourse(tempObj, value){
+    console.log(tempObj);
+    if(tempObj.course === value && tempObj.nextCourse !== null){
+      containCourse(tempObj.nextCourse, value);
+    }
+    if(tempObj.course === value && tempObj.nextCourse === null){
+      return true;
+    }
+
+    return false;
+  }
+
+  function insertCourse(fromCourse, value){
+    let obj = {};
+    obj[`course`] = value;
+    obj[`nextCourse`] = null;
+    if(fromCourse.nextCourse === null){
+      fromCourse.nextCourse = obj;
+    }else{
+      insertCourse(fromCourse.nextCourse, value);
     }
   }
 
@@ -18,15 +48,25 @@ function getDirections(matrix, from, to) {
   for(let i = 0; i < fromAble.length; i++){
     for(let j = 0; j < matrix[fromAble[i].course].length; j++){
       if(matrix[fromAble[i].course][j] === 1){
-        let obj = {};
-        obj[`course`] = j;
-        obj[`nextCourse`] = null;
-        fromAble[i].nextCourse = obj;
+        insertCourse(fromAble[i], j);
       }
     }
   }
 
+  for(let i = 0; i < tempAble.length; i++){
+    for(let j = 0; j < matrix[tempAble[i].course].length; j++){
+      console.log(`j === ${j}`);
+      if(containCourse(tempAble[i], j)){
+        insertCourse(tempAble[i], j);
+      }
+    }
+    // findCourse(tempAble[i], matrix[tempAble[i].course]);
+  }
+
+  console.log('===from');
   console.log(fromAble);
+  console.log('===temp');
+  console.log(tempAble);
 
   // let findTo = (matrixArr, fromObj) => {
   //   if(fromObj === undefined){
@@ -59,14 +99,14 @@ function getDirections(matrix, from, to) {
 /*
   test case 1
 */
-// const result = getDirections(
-//   [
-//     [0, 0],
-//     [0, 0],
-//   ],
-//   0,
-//   0
-// );
+const result = getDirections(
+  [
+    [0, 0],
+    [0, 0],
+  ],
+  0,
+  0
+);
 // console.log(result);
 
 /*
@@ -98,7 +138,7 @@ const matrix2 = [
   [0, 0, 1, 0]
 ];
 
-const result5 = getDirections(matrix2, 0, 2);
+// const result5 = getDirections(matrix2, 0, 2);
 // console.log(result5);
 
 /*
@@ -111,7 +151,7 @@ const matrix = [
   [0, 1, 0, 0],
 ];
 
-// const result6 = getDirections(matrix, 1, 0);
+const result6 = getDirections(matrix, 1, 0);
 // console.log(result6);
 
 // const result7 = getDirections(matrix, 2, 0);
