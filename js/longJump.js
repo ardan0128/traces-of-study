@@ -46,39 +46,29 @@
 
 function longJump(n){
   var answer = 0;
-  let case1 = 1;
-  let case2 = 2;
-
+  
   if(n < 3){
     return n;
   }
 
   let startNum = 3;
-  let jumpCase = (count) => {
-    let nCase = case1 + case2 % 1234567;
-    case1 = case2;
-    case2 = nCase;
-
-    if(count === n){
-      return nCase;
-    }
-
-    return jumpCase(count + 1);
-  }
-
+  
   answer = jumpCase(startNum);
 
   return answer;
 }
 
-function longJump(n){
-  let fibonacci = (num) => {
-    if(num === 0 || num === 1){
-      return num
-    }
+let jumpCase = (count) => {
+  let case1 = 1;
+  let case2 = 2;
+  let nCase = case1 + case2 % 1234567;
+  
+  case1 = case2;
+  case2 = nCase;
 
-    return fibonacci(num - 1) + fibonacci(num - 2);
+  if(count === n){
+    return nCase;
   }
 
-  return
+  return jumpCase(count + 1);
 }

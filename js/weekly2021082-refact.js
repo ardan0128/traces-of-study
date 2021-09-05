@@ -37,25 +37,17 @@ function weekly2021082(scores){
         }
       });
 
-      if((myScore === minScore || myScore === maxScore) && score[myScore] === 1){
-        delete score[myScore];
+      if(checkScore(myScore, minScore, maxScore, score)){
+        deleteScore(myScore, score)
       }
 
-      let sum = Object.keys(score).reduce((accu, curr) => {
-        return Number(accu) + Number(curr * score[curr]);
-      }, 0);
+      let sum = sumScore(score);
 
-      let scoreLength = Object.keys(score).reduce((accu, curr) => {
-        return Number(accu) + Number(score[curr]);
-      }, 0);
+      let scoreLength = countScore(score);
 
       let average = sum / scoreLength;
 
-      if(average >= 90) answer += 'A';
-      else if(average < 90 && average >= 80) answer += 'B';
-      else if(average < 80 && average >= 70) answer += 'C';
-      else if(average < 70 && average >= 50) answer += 'D';
-      else if(average < 50) answer += 'F';
+      answer += gradeScore(average);
 
       score = {};
       i = 0;
@@ -68,10 +60,30 @@ function weekly2021082(scores){
 
 console.log(weekly2021082(scores));
 
-function checkScore(averageScore){
+function gradeScore(averageScore){
   if(averageScore >= 90) return 'A';
   else if(averageScore < 90 && averageScore >= 80) return 'B';
   else if(averageScore < 80 && averageScore >= 70) return 'C';
   else if(averageScore < 70 && averageScore >= 50) return 'D';
   else if(averageScore < 50) return 'F';
 }
+
+function sumScore(score){
+  return Object.keys(score).reduce((accu, curr) => {
+    return Number(accu) + Number(curr * score[curr]);
+  }, 0);
+}
+
+function countScore(score){
+  return Object.keys(score).reduce((accu, curr) => {
+    return Number(accu) + Number(score[curr]);
+  }, 0);
+}
+
+function deleteScore(myScore, score){
+  delete score[myScore];
+}
+
+function checkScore(myScore, minScore, maxScore, score){
+  return (myScore === minScore || myScore === maxScore) && score[myScore] === 1;
+};
