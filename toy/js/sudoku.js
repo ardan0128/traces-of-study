@@ -14,12 +14,12 @@ const sudoku = function (board) {
 
   let i = 0;
   let j = 0;
-  while(i < 10 && j < 10){
+  while(i < 9 && j < 9){
     console.log(board[i][j]);
 
     i += 1;
 
-    if(i >= 10){
+    if(i >= 9){
       i = 0;
       j += 1;
     }

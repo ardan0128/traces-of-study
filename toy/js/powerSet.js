@@ -3,7 +3,6 @@ const powerSet = function (str) {
 
   // str의 중복을 지우고 알파벳 순으로 정렬을 한다.
   let setStr = [...new Set(str)].sort();
-  console.log(setStr);
   let result = [''];
 
   // for(let i = 0; i < setStr.length; i++){
