@@ -12,21 +12,18 @@ const sudoku = function (board) {
     widthArr.push(board[i]);
   }
 
-  // 세로줄
   let i = 0;
-  while(i < 10){
-    let heightItem = [];
-    for(let j = 0; i < width; j += 1){
-      heightItem.push(board[i][j]);
-      console.log(board[i][j]);
-    }
-    heightArr.push(heightItem);
+  let j = 0;
+  while(i < 10 && j < 10){
+    console.log(board[i][j]);
+
     i += 1;
+
+    if(i >= 10){
+      i = 0;
+      j += 1;
+    }
   }
-
-  console.log(widthArr);
-  console.log(heightArr);
-
 };
 
 let board = [
