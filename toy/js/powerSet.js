@@ -19,7 +19,6 @@ const powerSet = function (str) {
   // }
 
   function makeStr(idx, str, arr){
-    console.log(str);
     if(idx === arr.length){
       return;
     }
