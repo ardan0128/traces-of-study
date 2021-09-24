@@ -41,20 +41,3 @@ const getItemFromTwoSortedArrays = function (arr1, arr2, k) {
 
   return Math.max(leftMax, rightMax);
 };
-
-let arr1 = [1, 4, 8, 10];
-let arr2 = [2, 3, 5, 9];
-
-let result = getItemFromTwoSortedArrays(arr1, arr2, 6);
-
-console.log(result);
-
-arr1 = [1, 1, 2, 10];
-arr2 = [3, 3];
-result = getItemFromTwoSortedArrays(arr1, arr2, 4);
-console.log(result);
-
-arr1 = [1, 1, 2, 10];
-arr2 = [2, 3, 7, 12];
-result = getItemFromTwoSortedArrays(arr1, arr2, 7);
-console.log(result);
