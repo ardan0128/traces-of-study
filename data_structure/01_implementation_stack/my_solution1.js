@@ -5,24 +5,24 @@ class Stack {
   }
 
   size() {
-    return FILL_ME_IN;
+    return this.top;
   }
 
 	// 스택에 데이터를 추가 할 수 있어야 합니다.
   push(element) {
-    this.storage[FILL_ME_IN] = element;
+    this.storage[this.top] = element;
     this.top += 1;
   }
 	
 	// 가장 나중에 추가된 데이터가 가장 먼저 추출되어야 합니다.
   pop() {
     // 빈 스택에 pop 연산을 적용해도 에러가 발생하지 않아야 합니다
-    if (FILL_ME_IN) {
+    if (this.size() <= 0) {
       return;
     }
 
-    const result = this.storage[FILL_ME_IN];
-    delete this.storage[FILL_ME_IN];
+    const result = this.storage[this.top - 1];
+    delete this.storage[this.top - 1];
     this.top -= 1;
     
     return result;
