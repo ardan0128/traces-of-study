@@ -8,57 +8,94 @@ const createMatrix = (village) => {
   return matrix;
 };
 
-const gossipProtocol2 = function (village, num) {
-  // TODO: 여기에 코드를 작성합니다.
-  const villageMap = createMatrix(village);
-  const allAgent = [];
-  const villageAgent = [];
-
-  for(let i = 0; i < villageMap.length; i++){
-    for(let j = 0; j < villageMap[i].length; j++){
-      if(villageMap[i][j] === '2'){
-        allAgent.push([i, j]);
-      }
+const getAgents = (village) => {
+  const agents = [];
+  for (let row = 0; row < village.length; row++) {
+    for (let col = 0; col < village.length; col++) {
+      if (village[row][col] === '2') agents.push([row, col]);
     }
   }
-
-  function choiceAgent(num, agent, arr){
-    if(num === 0){
-      villageAgent.push(agent);
-      return;
-    }
-
-    for(let i = 0; i < arr.length; i++){
-      let tempArr = arr.slice();
-      tempArr.splice(i, 1);
-      choiceAgent(num - 1, agent.concat(arr[i]), tempArr);
-    }
-  }
-
-  choiceAgent(num, [], allAgent);
-
-  return villageAgent;
+  return agents;
 };
 
-let village = [
-  '0022', // 첫 번째 줄
-  '0020',
-  '0020',
-  '0220',
-];
-let num = 1;
-let output = gossipProtocol2(village, num);
-console.log(output); // --> 0 (이미 모든 주민이 정보를 알고 있는 상태)
+const gossipProtocol2 = function (village, num) {
+  const N = village.length;
+  const MOVES = [
+    [-1, 0], // UP
+    [1, 0], // DOWN
+    [0, 1], // RIGHT
+    [0, -1], // LEFT
+  ];
+  const MAX_SIZE = N * N;
+  const isValid = (row, col) => row >= 0 && row < N && col >= 0 && col < N;
+  let front, rear;
+  const isEmpty = (queue) => front === rear;
+  const enQueue = (queue, pos) => {
+    queue[rear++] = pos;
+  };
+  const deQueue = (queue) => {
+    const pos = queue[front++];
+    return pos;
+  };
 
-village = [
-  '1001212',
-  '1201011',
-  '1102001',
-  '2111102',
-  '0012111',
-  '1111101',
-  '2121102',
-];
-num = 5;
-output = gossipProtocol2(village, num);
-console.log(output); // --> 3 
+  const bfs = (sources) => {
+    const matrix = createMatrix(village);
+    const queue = Array(MAX_SIZE);
+    front = 0;
+    rear = 0;
+
+    sources.forEach((src) => {
+      const [row, col] = src;
+      matrix[row][col] = 0;
+      enQueue(queue, src);
+    });
+
+    let cnt = 0;
+    while (isEmpty(queue) === false) {
+      const [row, col] = deQueue(queue);
+      cnt = matrix[row][col];
+
+      MOVES.forEach((move) => {
+        const [rDiff, cDiff] = move;
+        const nextRow = row + rDiff;
+        const nextCol = col + cDiff;
+        if (isValid(nextRow, nextCol) && matrix[nextRow][nextCol] === '1') {
+          enQueue(queue, [nextRow, nextCol]);
+          matrix[nextRow][nextCol] = matrix[row][col] + 1;
+        }
+      });
+    }
+
+    for (let row = 0; row < matrix.length; row++) {
+      for (let col = 0; col < matrix.length; col++) {
+        if (matrix[row][col] === '1') return Number.MAX_SAFE_INTEGER;
+      }
+    }
+    return cnt;
+  };
+
+  const agents = getAgents(village);
+  const getCombinations = (idx, size, num, result) => {
+    if (size - idx <= num) {
+      for (let i = idx; i < size; i++) result.push(i);
+      return [result];
+    }
+
+    if (num === 0) {
+      return [result];
+    }
+
+    const picked = getCombinations(idx + 1, size, num - 1, result.concat(idx));
+    const notPicked = getCombinations(idx + 1, size, num, result);
+    return picked.concat(notPicked);
+  };
+
+  const combs = getCombinations(0, agents.length, num, []);
+  let min = Number.MAX_SAFE_INTEGER;
+  combs.forEach((c) => {
+    const sources = c.map((idx) => agents[idx]);
+    const result = bfs(sources);
+    min = Math.min(min, result);
+  });
+  return min;
+};
