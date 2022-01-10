@@ -3,13 +3,13 @@ function solution(numbers) {
   let arr = [true, true, true, true, true, true, true, true, true, true];
   
   for(let i = 0; i < numbers.length; i++){
-      arr[numbers[i]] = false;
+    arr[numbers[i]] = false;
   }
-  
+	
   for(let i = 0; i < arr.length; i++){
       if(arr[i]){
-          answer += i;
-      }
+    answer += i;
+    }
   }
   
   return answer;
