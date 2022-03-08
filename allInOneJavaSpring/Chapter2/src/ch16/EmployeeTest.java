@@ -6,7 +6,11 @@ public class EmployeeTest {
     employeeLee.setEmployeeName("이순신");
 
     // System.out.println(employeeLee.serialNum);
-    System.out.println(Employee.serialNum); // static 변수는 이렇게 사용하는게 맞다
+    // static 변수는 이렇게 사용하는게 맞다
+    // System.out.println(Employee.serialNum);
+
+    // static 변수는 외부에 접근할 수 없게 만들어야하고 할당할 수도 없어야 한다.
+    System.out.println(Employee.getSerialNum());
 
     Employee employeeKim = new Employee();
     employeeKim.setEmployeeName("김유신");
