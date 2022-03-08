@@ -1,6 +1,6 @@
 package ch18;
 
-import java.util.Calendar;
+// import java.util.Calendar;
 
 public class CompanyTest {
   public static void main(String[] args) {
@@ -12,6 +12,6 @@ public class CompanyTest {
     System.out.println(company2);
 
     // Company와 같은 방법
-    Calendar calendar = Calendar.getInstance();
+    // Calendar calendar = Calendar.getInstance();
   }
 }
