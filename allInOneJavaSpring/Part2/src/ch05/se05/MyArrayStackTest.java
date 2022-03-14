@@ -1,4 +1,4 @@
-package ch05.se04;
+package ch05.se05;
 
 public class MyArrayStackTest {
   public static void main(String[] args) {

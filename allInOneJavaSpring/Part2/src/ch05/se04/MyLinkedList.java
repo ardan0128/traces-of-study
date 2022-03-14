@@ -1,4 +1,4 @@
-package ch05.se03;
+package ch05.se04;
 
 public class MyLinkedList {
   private MyListNode head;

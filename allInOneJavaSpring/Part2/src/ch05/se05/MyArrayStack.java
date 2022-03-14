@@ -1,6 +1,6 @@
-package ch05.se04;
+package ch05.se05;
 
-import ch05.se02.MyArray;
+import ch05.se03.MyArray;
 
 public class MyArrayStack {
   MyArray arrayStack;

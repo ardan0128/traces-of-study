@@ -1,4 +1,4 @@
-package ch05.se02;
+package ch05.se03;
 
 public class MyArray {
   int[] intArr;
