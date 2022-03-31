@@ -1,4 +1,4 @@
-package ch08;
+package ch08.se05;
 
 class MyGraph {
   private int count; // 노드 수
