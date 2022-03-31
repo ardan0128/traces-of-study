@@ -1,4 +1,4 @@
-package ch08;
+package ch08.se01;
 
 public class MinMaxProblem {
   public static void main(String[] args) {

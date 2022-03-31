@@ -1,4 +1,4 @@
-package ch08;
+package ch08.se03;
 
 public class HeapSort {
   private int SIZE;

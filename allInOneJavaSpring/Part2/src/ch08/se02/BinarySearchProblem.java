@@ -1,4 +1,4 @@
-package ch08;
+package ch08.se02;
 
 public class BinarySearchProblem {
   public static void main(String[] args) {

@@ -1,4 +1,4 @@
-package ch08;
+package ch08.se04;
 
 import java.util.ArrayList;
 

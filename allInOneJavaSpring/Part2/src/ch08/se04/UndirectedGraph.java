@@ -1,4 +1,4 @@
-package ch08;
+package ch08.se04;
 
 public class UndirectedGraph {
   private int count; // 노드 수

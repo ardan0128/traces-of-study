@@ -1,4 +1,4 @@
-package ch08;
+package ch08.se03;
 
 public class InsertionSort {
   public static void insertionSort(int[] arr, int count) {
