@@ -2,6 +2,7 @@ package com.designPattern;
 
 import com.designPattern.adapter.*;
 import com.designPattern.aop.AopBrowser;
+import com.designPattern.decorator.*;
 import com.designPattern.proxy.Browser;
 import com.designPattern.proxy.BrowserProxy;
 import com.designPattern.proxy.IBrowser;
@@ -59,6 +60,7 @@ public class Main {
         browser1.show();
         browser1.show();
         browser1.show();
+        System.out.println();
 
         // Aop Pattern
         AtomicLong start = new AtomicLong();
@@ -78,6 +80,21 @@ public class Main {
 
         aopBrowser.show();
         System.out.println("loading time : " + end.get());
+        System.out.println();
+
+        // Decorator Pattern
+        System.out.println("Decorator Pattern");
+        ICar audi = new Audi(1000);
+        audi.showPrice();
+
+        ICar audi3 = new A3(audi, "A3");
+        audi3.showPrice();
+
+        ICar audi4 = new A4(audi, "A4");
+        audi4.showPrice();
+
+        ICar audi5 = new A5(audi, "A5");
+        audi5.showPrice();
     }
 
     public static void connect(Electronic110V electronic110V){
