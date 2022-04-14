@@ -3,6 +3,10 @@ package com.designPattern;
 import com.designPattern.adapter.*;
 import com.designPattern.aop.AopBrowser;
 import com.designPattern.decorator.*;
+import com.designPattern.facade.Ftp;
+import com.designPattern.facade.Reader;
+import com.designPattern.facade.SftpClient;
+import com.designPattern.facade.Writer;
 import com.designPattern.observer.Button;
 import com.designPattern.observer.IButtonListener;
 import com.designPattern.proxy.Browser;
@@ -112,6 +116,15 @@ public class Main {
         button.click("메시지 전달 : click 2");
         button.click("메시지 전달 : click 3");
         button.click("메시지 전달 : click 4");
+        System.out.println();
+
+        // Facade Pattern
+        System.out.println("Facade Pattern");
+        SftpClient sftpClient = new SftpClient("www.naver.com", 22, "/home/etc", "text.txt");
+        sftpClient.connect();
+        sftpClient.write();
+        sftpClient.read();
+        sftpClient.disConnect();
     }
 
     public static void connect(Electronic110V electronic110V){
