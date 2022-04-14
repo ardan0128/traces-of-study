@@ -3,6 +3,8 @@ package com.designPattern;
 import com.designPattern.adapter.*;
 import com.designPattern.aop.AopBrowser;
 import com.designPattern.decorator.*;
+import com.designPattern.observer.Button;
+import com.designPattern.observer.IButtonListener;
 import com.designPattern.proxy.Browser;
 import com.designPattern.proxy.BrowserProxy;
 import com.designPattern.proxy.IBrowser;
@@ -95,6 +97,21 @@ public class Main {
 
         ICar audi5 = new A5(audi, "A5");
         audi5.showPrice();
+        System.out.println();
+
+        // Observer Pattern
+        System.out.println("Observer Pattern");
+        Button button = new Button("버튼");
+        button.addListener(new IButtonListener() {
+            @Override
+            public void clickEvent(String event) {
+                System.out.println(event);
+            }
+        });
+        button.click("메시지 전달 : click 1");
+        button.click("메시지 전달 : click 2");
+        button.click("메시지 전달 : click 3");
+        button.click("메시지 전달 : click 4");
     }
 
     public static void connect(Electronic110V electronic110V){
