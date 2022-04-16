@@ -11,6 +11,16 @@ public class UserDto {
     @JsonProperty("phone_number")
     private String phoneNumber;
 
+    public UserDto(){
+
+    }
+
+    public UserDto(String name, Integer age, String phoneNumber){
+        this.name = name;
+        this.age = age;
+        this.phoneNumber = phoneNumber;
+    }
+
     public String getName() {
         return name;
     }
