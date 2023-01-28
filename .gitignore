@@ -1,3 +1,7 @@
 .DS_Store
 
 play-ground/ts/node_modules/
+
+.idea
+
+traces-of-study.iml
