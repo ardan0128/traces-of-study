@@ -10,10 +10,8 @@ public class Main {
     int[] inputCount = new int[26];
     for(int i = 0; i < inputText.length(); i++){
       if(inputText.charAt(i) > 'Z'){
-        System.out.println(inputText.charAt(i) - 'a');
         inputCount[inputText.charAt(i) - 'a']++;
       }else{
-        System.out.println(inputText.charAt(i) - 'A');
         inputCount[inputText.charAt(i) - 'A']++;
       }
     }
@@ -32,7 +30,7 @@ public class Main {
     if(maxCount > 1){
       System.out.println("?");
     }else{
-      System.out.println((char) maxIndex);
+      System.out.println((char) (maxIndex + 'A'));
     }
   }
 }
