@@ -20,3 +20,13 @@
 6. node 환경에서 TypeScript 도움받기
 7. TypeScript와 jsconfig
 8. 환경설정 종합
+
+## 2023.07.25 강의 시청
+
+### 백엔드 part 1
+
+#### Ch 03. Javascript 기초 이론 다지기
+
+1. call stack, non-blocking IO, event loop
+2. scope, hoisting
+3. closure
