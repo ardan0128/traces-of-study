@@ -30,3 +30,17 @@
 1. call stack, non-blocking IO, event loop
 2. scope, hoisting
 3. closure
+
+## 2023.07.25 강의 시청
+
+### 백엔드 part 1
+
+#### Ch 03. Javascript 기초 이론 다지기
+
+4. prototype
+
+#### Ch 04. 모던 JavaScript 살펴보기
+
+1. 자바스크립트의 최근 변화, TC39, 그리고 node
+2. let과 const
+3. spread operator의 다양한 활용
