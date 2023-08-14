@@ -5,12 +5,13 @@ import java.util.Scanner;
 public class Main {
   static StringBuilder sb = new StringBuilder();
   static int N, M;
-  static int[] selected;
+  static int[] selected, used;
   public static void main(String[] args){
     Scanner scan = new Scanner(System.in);
     N = scan.nextInt();
     M = scan.nextInt();
     selected = new int[M + 1];
+    used = new int[N + 1];
 
     solution(1);
 
@@ -25,17 +26,13 @@ public class Main {
       sb.append('\n');
     }else{
       for(int i = 1; i <= N; i++){
-        boolean isUsed = false;
-        for(int j = 1; j < n; j++){
-          if(i == selected[j]){
-            isUsed = true;
-          }
+        if(used[i] == 1){
+          continue;
         }
-
-        if(!isUsed){
-          selected[n] = i;
-          solution(n + 1);
-        }
+        selected[n] = i;
+        used[i] = 1;
+        solution(n + 1);
+        used[i] = 0;
       }
     }
   }
