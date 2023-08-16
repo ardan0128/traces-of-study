@@ -79,3 +79,12 @@
 
 2. 어떻게든 푼다. 완전 탐색(Brute Force) - 응용편 (복습)
 3. 다양한 정렬 응용법(Sort Application)
+
+## 2023.08.16 강의 시청
+
+### Part 5. 단기완성 알고리즘
+
+#### Ch 02. 알고리즘
+
+3. 다양한 정렬 응용법(Sort Application) (복습)
+4. 다양한 정렬 응용법(Sort Application) - 응용편
