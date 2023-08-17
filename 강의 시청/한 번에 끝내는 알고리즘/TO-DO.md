@@ -88,3 +88,12 @@
 
 3. 다양한 정렬 응용법(Sort Application) (복습)
 4. 다양한 정렬 응용법(Sort Application) - 응용편
+
+## 2023.08.17 강의 시청
+
+### Part 5. 단기완성 알고리즘
+
+#### Ch 02. 알고리즘
+
+4. 다양한 정렬 응용법(Sort Application) - 응용편 (복습)
+5. 이분 탐색(Binary Search)
