@@ -68,8 +68,8 @@
 
 #### Ch 02. 알고리즘
 
-2. 어떻게든 푼다. 완전 탐색(Brute Force) - 응용편
-3. 다양한 정렬 응용법(Sort Application)
+1. 어떻게든 푼다. 완전 탐색(Brute Force) - 응용편
+2. 다양한 정렬 응용법(Sort Application)
 
 ## 2023.08.15 강의 시청
 
@@ -77,8 +77,8 @@
 
 #### Ch 02. 알고리즘
 
-2. 어떻게든 푼다. 완전 탐색(Brute Force) - 응용편 (복습)
-3. 다양한 정렬 응용법(Sort Application)
+1. 어떻게든 푼다. 완전 탐색(Brute Force) - 응용편 (복습)
+2. 다양한 정렬 응용법(Sort Application)
 
 ## 2023.08.16 강의 시청
 
@@ -86,8 +86,8 @@
 
 #### Ch 02. 알고리즘
 
-3. 다양한 정렬 응용법(Sort Application) (복습)
-4. 다양한 정렬 응용법(Sort Application) - 응용편
+1. 다양한 정렬 응용법(Sort Application) (복습)
+2. 다양한 정렬 응용법(Sort Application) - 응용편
 
 ## 2023.08.17 강의 시청
 
@@ -95,5 +95,14 @@
 
 #### Ch 02. 알고리즘
 
-4. 다양한 정렬 응용법(Sort Application) - 응용편 (복습)
-5. 이분 탐색(Binary Search)
+1. 다양한 정렬 응용법(Sort Application) - 응용편 (복습)
+2. 이분 탐색(Binary Search)
+
+## 2023.08.17 강의 시청
+
+### Part 5. 단기완성 알고리즘
+
+#### Ch 02. 알고리즘
+
+1. 이분 탐색(Binary Search) (복습)
+2. 이분 탐색(Binary Search) - 응용편
