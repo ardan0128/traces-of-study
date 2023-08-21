@@ -17,11 +17,11 @@ public class Main {
       A[i] = scanner.nextInt();
     }
 
-    solution();
+    solution2();
     System.out.println(sb);
   }
 
-  static void solution(){
+  static void solution1(){
     Arrays.sort(A, 1, N + 1);
 
     int sum = Integer.MAX_VALUE;
@@ -40,6 +40,28 @@ public class Main {
         sum = Math.abs(A[i] + A[value]);
         v1 = A[i];
         v2 = A[value];
+      }
+    }
+
+    sb.append(v1).append(' ').append(v2);
+  }
+
+  static void solution2(){
+    Arrays.sort(A, 1, N + 1);
+
+    int v1 = 0, v2 = 0, L = 1, R = N, sum = Integer.MAX_VALUE;
+
+    while(L < R){
+      if(sum > Math.abs(A[L] + A[R])){
+        sum = Math.abs(A[L] + A[R]);
+        v1 = A[L];
+        v2 = A[R];
+      }
+
+      if(A[L] + A[R] > 0) {
+        R--;
+      }else{
+        L++;
       }
     }
 
