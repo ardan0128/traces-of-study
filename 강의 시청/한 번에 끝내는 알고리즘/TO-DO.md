@@ -123,4 +123,4 @@
 #### Ch 02. 알고리즘
 
 1. 그래프와 탐색(Graph & Search)
-2. 그래프와 탐색(Graph & Search) - 응용편
+2. 그래프와 탐색(Graph & Search) - 응용편 1
