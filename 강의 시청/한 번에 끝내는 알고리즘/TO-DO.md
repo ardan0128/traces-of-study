@@ -156,4 +156,13 @@
 #### Ch 02. 알고리즘
 
 1. 최단 경로(Shortest Path)
-2. 동적 프로그래밍(Dynamic Programming)
+2. 동적 프로그래밍(Dynamic Programming) - 1
+
+## 2023.08.29 강의 시청
+
+### Part 5. 단기완성 알고리즘
+
+#### Ch 02. 알고리즘
+
+1. 동적 프로그래밍(Dynamic Programming) - 2
+2. 동적 프로그래밍(Dynamic Programming) - 3
