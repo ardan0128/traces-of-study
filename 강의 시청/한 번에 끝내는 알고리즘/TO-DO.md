@@ -166,3 +166,23 @@
 
 1. 동적 프로그래밍(Dynamic Programming) - 2
 2. 동적 프로그래밍(Dynamic Programming) - 3
+
+---
+
+## 2023.08.29 강의 시청
+
+### Part 5. 단기완성 알고리즘
+
+#### Ch 02. 알고리즘
+
+전체 복습
+
+1. 어떻게든 푼다. 완전탐색 (Brute Force)
+2. 다양한 정렬 응용법 (Sort Application)
+3. 이분 탐색 (Binary Search)
+4. 두 포인터 (Two Pointers)
+5. 그래프와 탐색 (Graph & Search)
+6. 트리 (Tree)
+7. 위상정렬
+8. 최단 경로 (Shortest Path)
+9. 동적 프로그래밍 (Dynamic Programming)
