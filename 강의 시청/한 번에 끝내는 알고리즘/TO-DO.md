@@ -186,3 +186,13 @@
 7. 위상정렬
 8. 최단 경로 (Shortest Path)
 9. 동적 프로그래밍 (Dynamic Programming)
+
+## 2023.09.06 강의 시청
+
+### Part 5. 단기완성 알고리즘
+
+#### Ch 02. 알고리즘
+
+1. 그래프와 탐색 (Graph & Search)
+2. 그래프와 탐색 (Graph & Search) - 응용편 1
+3. 그래프와 탐색 (Graph & Search) - 응용편 2
