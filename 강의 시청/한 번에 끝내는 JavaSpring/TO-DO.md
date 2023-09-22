@@ -28,3 +28,31 @@
 2. REST API
 3. URI 설계 패턴
 4. HTTP Protocol
+
+## 2023.09.22 강의 시청
+
+### Part 3. 스프링 입문
+
+#### Ch 04. 스프링 부트 시작하기
+
+1. 스프링 부트란
+2. Hello World API를 만들어보자
+3. GET API(1)
+4. GET API(2)
+5. POST API
+6. PUT API
+7. DELETE API
+8. RESPONSE 내려주기 및 모범사례
+9. 모범사례 - Object Mapper
+
+#### Ch 05. 스프링을 조금 더 들여다보기
+
+1. 스프링의 핵심
+2. IoC, DI (1)
+3. IoC, DI (2)
+4. AOP
+5. AOP 실무 사례 알아보기 (1)
+6. AOP 실무 사례 알아보기 (2)
+7. ObjectMapper
+8. ObjectMapper 실무 사례 알아보기
+9. 여러가지 Annotation 알아보기
