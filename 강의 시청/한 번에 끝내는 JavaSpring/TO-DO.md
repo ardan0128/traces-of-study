@@ -56,3 +56,32 @@
 7. ObjectMapper
 8. ObjectMapper 실무 사례 알아보기
 9. 여러가지 Annotation 알아보기
+
+## 2023.09.25 강의 시청
+
+### Part 3. 스프링 입문
+
+#### Ch 06. 스프링의 기능을 활용해보자
+
+1. Spring Boot Validation
+2. Spring Boot Custom Validation
+3. Spring Boot Exception 처리
+4. Spring Boot Validation을 통한 모범 사례 (1)
+5. Spring Boot Validation을 통한 모범 사례 (2)
+6. Filter-Interceptor의 활용 (1)
+7. Filter-Interceptor의 활용 (2)
+8. 비동기 처리
+
+#### Ch 07. Server to Server 간의 연결
+
+1. Server to Server 통신을 하는 방법
+2. Rest Template 사용하기 (1)
+3. Rest Template 사용하기 (2)
+4. Rest Template 사용하기 (3)
+5. Naver 지역 검색 API 연동해보기
+
+#### Ch 08. Server to Server 간의 연결
+
+1. Junit란
+2. REST API CRUD 테스트 코드 작성하기
+3. 테스트 커버리지 확인하기
