@@ -85,3 +85,22 @@
 1. Junit란
 2. REST API CRUD 테스트 코드 작성하기
 3. 테스트 커버리지 확인하기
+
+## 2023.09.26 강의 시청
+
+### Part 4. 안정적인 서비스를 위한 Spring Data와 Security - JPA 프로그래밍
+
+#### Ch 01. 학습 전 기초 사항
+
+1. 강사소개 학습 목표
+2. JPA 소개
+3. Spring boot 프로젝트 생성
+4. Lombok 알아보기
+5. H2 DB 및 로그 설정
+
+#### Ch 02. Spring Data JPA 기초보기
+
+1. Repository Interface 계층 살펴보기
+2. Repositoey Interface 메소드 실습 (1)
+3. Repositoey Interface 메소드 실습 (2)
+4. SimpleJpaRepository 코드보기
