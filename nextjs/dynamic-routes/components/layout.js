@@ -44,7 +44,7 @@ export default function Layout({ children, home }) {
       <main>{children}</main>
       {!home && (
         <div className={styles.backToHome}>
-          <Link href="/">← 뭐지</Link>
+          <Link href="/">← Back to home</Link>
         </div>
       )}
     </div>
