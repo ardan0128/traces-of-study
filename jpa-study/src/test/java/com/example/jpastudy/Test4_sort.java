@@ -28,9 +28,9 @@ public class Test4_sort {
     Team teamA = new Team("teamA");
     Team teamB = new Team("teamB");
     Member m1 = new Member("m1", 10, teamA);
-    Member m2 = new Member("m2", 10, teamA);
-    Member m3 = new Member("m3", 10, teamA);
-    Member m4 = new Member("m4", 10, teamA);
+    Member m2 = new Member("m2", 20, teamA);
+    Member m3 = new Member("m3", 30, teamB);
+    Member m4 = new Member("m4", 40, teamB);
 
     em.persist(teamA);
     em.persist(teamB);
