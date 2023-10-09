@@ -1,0 +1,44 @@
+server:
+  port: 8090
+spring:
+  datasource:
+    # -- DB 연결정보 --
+    url: jdbc:postgresql://localhost:5432/jortier
+    username: postgres
+    password: asfg1245
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      # -- 실제 서비스 제공 시 반드시 none로 설정한다.--
+      ddl-auto: create
+    properties:
+      hibernate:
+        # -- (아래의 3개가 쿼리를 화면에 표시하는 기본 형태이다. p6spy 사용시 show_sql , use_sql_commants를 false로 처리) --
+        # -- SQL을 Print를 사용하여 화면에 표시 --
+        show_sql: false
+        # -- JPQL을 보여준다. (주석으로 /* */ 보이는 쿼리가 JPQL이다. p6spy와 같이 쓰면 마지막 파라메터가 null로 표시되는 에러발생) --
+        use_sql_comments: false
+        # -- JPA가 만든 쿼리를 화면에 표시 할 때 SQL 형식으로 표시한다. --
+        format_sql: true
+        # -- default_batch_fetch_size: 0 ~ 1000을 주로 사용한다. 100~500을 기본으로 사용한다. --
+        default_batch_fetch_size: 500
+    # -- 데이터베이스 종류 --
+    database: postgresql
+    # -- PostgreSQL에 더 최적화 된 SQL을 생성하게 도와준다. --
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    # -- transaction이 끝나면 Connection을 반환함. --
+    open-in-view: false
+
+# p6spy 사용을 제어한다. (성능 문제로 테스트에서만 사용한다.)
+decorator:
+  datasource:
+    p6spy:
+      enable-logging: true
+
+#logging:
+#  level:
+#    # -- JPA가 만든 쿼리를 log로 출력해 준다. (운영 시 고려함, jpa.propersies.hibernate.show-sql: true는 print 사용) --
+#    # -- 테스트 시 p6spy만 사용하고 운영시 log를 고려한다. (build.gradle)
+#    org.hibernate.SQL: debug
+#    # -- show-sql로 값을 출력 시 쿼리의 ? 값을 하단에 표시한다.
+#    org.hibernate.type.descriptor.sql: true
