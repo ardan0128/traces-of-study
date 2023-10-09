@@ -41,7 +41,7 @@ public class TestOne {
   }
 
   @Test
-  public void startQueryDsl() throws Exception{
+  public void startQueryDsl(){
     Member findMember = query.select(member).from(member).where(member.name.eq("m1")).fetchOne();
 
     assertThat(findMember.getName()).isEqualTo("m1");
