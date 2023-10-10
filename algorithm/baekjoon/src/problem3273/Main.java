@@ -19,15 +19,10 @@ public class Main {
     }
 
     X = scanner.nextInt();
-    count = 0;
 
     Arrays.sort(nums, 1, N + 1);
 
-    for(int i = 1; i <= N; i++){
-      binarySearch(i);
-    }
-
-    System.out.println(count);
+    solutionTwoPointer();
   }
 
   static void binarySearch(int num){
@@ -47,5 +42,35 @@ public class Main {
         R = M - 1;
       }
     }
+  }
+
+  static void solutionBinarySearch(){
+    count = 0;
+
+    for(int i = 1; i <= N; i++){
+      binarySearch(i);
+    }
+
+    System.out.println(count);
+  }
+
+  static void solutionTwoPointer(){
+    count = 0;
+    int L = 1;
+    int R = N;
+
+    while(L < R){
+      if(nums[L] + nums[R] == X){
+        count++;
+      }
+
+      if(nums[L] + nums[R] >= X){
+        R--;
+      }else{
+        L++;
+      }
+    }
+
+    System.out.println(count);
   }
 }
