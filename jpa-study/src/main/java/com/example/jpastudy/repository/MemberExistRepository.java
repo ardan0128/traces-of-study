@@ -1,4 +1,4 @@
-package com.example.jpastudy.repositort;
+package com.example.jpastudy.repository;
 
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import lombok.RequiredArgsConstructor;

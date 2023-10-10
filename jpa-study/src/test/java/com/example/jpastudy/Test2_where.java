@@ -2,7 +2,7 @@ package com.example.jpastudy;
 
 import com.example.jpastudy.entity.Member;
 import com.example.jpastudy.entity.Team;
-import com.example.jpastudy.repositort.MemberExistRepository;
+import com.example.jpastudy.repository.MemberExistRepository;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;

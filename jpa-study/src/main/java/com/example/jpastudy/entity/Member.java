@@ -3,6 +3,9 @@ package com.example.jpastudy.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Getter
 @Setter
@@ -23,6 +26,9 @@ public class Member {
   @ManyToOne(fetch = FetchType.LAZY)
   @JoinColumn(name = "team_ID")
   private Team team;
+
+  @OneToMany(mappedBy = "member")
+  private List<Task> tasks = new ArrayList<>();
 
   public Member(String name){
     this(name, 0);
