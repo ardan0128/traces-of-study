@@ -6,7 +6,6 @@ import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
 import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -15,12 +14,10 @@ import java.util.List;
 
 import static com.example.jpastudy.entity.QMember.member;
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 @SpringBootTest
 @Transactional
-public class Test3_fetch {
+public class JPA_paging {
   @Autowired
   EntityManager em;
   JPAQueryFactory query;
@@ -44,37 +41,9 @@ public class Test3_fetch {
   }
 
   @Test
-  @DisplayName("fetch 결과 조회")
-  public void fetch(){
-    List<Member> fetch = query.selectFrom(member).fetch();
+  public void paging(){
+    List<Member> members = query.selectFrom(member).orderBy(member.name.desc()).offset(1).limit(2).fetch();
 
-    assertThat(fetch.size()).isEqualTo(4);
-  }
-
-  @Test
-  public void fetchOne(){
-    Exception exception = assertThrows(Exception.class, () -> {
-      Member findMember = query.selectFrom(member).fetchOne();
-    });
-    String expectedMessage = "NonUniqueResultException";
-    String actualMessage = exception.getMessage();
-
-    assertTrue(actualMessage.contains(expectedMessage));
-  }
-
-  @Test
-  public void fetchFirst(){
-    Member findMember = query.selectFrom(member).fetchFirst();
-
-    assertThat(findMember instanceof Member);
-  }
-
-  @Test
-  public void contentCount(){
-    List<Member> content = query.selectFrom(member).fetch();
-    Long totalCount = query.select(member.count()).from(member).fetchOne();
-
-    assertThat(content.size()).isEqualTo(4);
-    assertThat(totalCount == 4);
+    assertThat(members.size()).isEqualTo(2);
   }
 }

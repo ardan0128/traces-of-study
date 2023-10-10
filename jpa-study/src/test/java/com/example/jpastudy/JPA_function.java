@@ -22,7 +22,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 @SpringBootTest
 @Transactional
-public class Test6_function {
+public class JPA_function {
   @Autowired
   EntityManager em;
   JPAQueryFactory query;
