@@ -3,6 +3,9 @@ package com.example.jpastudy;
 import com.example.jpastudy.entity.Member;
 import com.example.jpastudy.entity.Team;
 import com.querydsl.core.Tuple;
+import com.querydsl.core.types.NullExpression;
+import com.querydsl.core.types.Order;
+import com.querydsl.core.types.OrderSpecifier;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import jakarta.persistence.EntityManager;
 import jakarta.transaction.Transactional;
@@ -57,6 +60,27 @@ public class Test6_function {
   @Test
   public void groupBy(){
     List<Tuple> result = query.select(team.name, member.age.avg()).from(member).join(member.team, team).groupBy(team.name).fetch();
+    Tuple teamA = result.get(0);
+    Tuple teamB = result.get(1);
+
+    assertThat(teamA.get(team.name)).isEqualTo("teamA");
+    assertThat(teamA.get(member.age.avg())).isEqualTo(15);
+    assertThat(teamB.get(team.name)).isEqualTo("teamB");
+    assertThat(teamB.get(member.age.avg())).isEqualTo(35);
+  }
+
+  /** PostgreSQL에서는 사용할 수 없음*/
+  public static class OrderByNull extends OrderSpecifier {
+    public static final OrderByNull DEFAULT = new OrderByNull();
+
+    private OrderByNull() {
+      super(Order.ASC, NullExpression.DEFAULT, NullHandling.Default);
+    }
+  }
+
+  @Test
+  public void orderByNull(){
+    List<Tuple> result = query.select(team.name, member.age.avg()).from(member).join(member.team, team).groupBy(team.name).orderBy(OrderByNull.DEFAULT).fetch();
     Tuple teamA = result.get(0);
     Tuple teamB = result.get(1);
 
