@@ -12,6 +12,10 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 
+import static com.example.jpastudy.entity.QMember.member;
+import static com.example.jpastudy.entity.QTeam.team;
+import static org.assertj.core.api.Assertions.assertThat;
+
 @SpringBootTest
 @Transactional
 public class JPA_fetch_join {
@@ -41,7 +45,31 @@ public class JPA_fetch_join {
   EntityManagerFactory emf;
 
   @Test
-  public void noFetchJoin(){
+  public void unusedFetchJoin(){
+    em.flush();
+    em.clear();
 
+    Member findMember = query
+        .selectFrom(member)
+        .where(member.name.eq("m1"))
+        .fetchOne();
+    boolean loaded = emf.getPersistenceUnitUtil().isLoaded(findMember.getTeam());
+
+    assertThat(loaded).as("unused fetchJoin()").isFalse();
+  }
+
+  @Test
+  public void usedFetchJoin(){
+    em.flush();
+    em.clear();
+
+    Member findMember = query
+        .selectFrom(member)
+        .join(member.team, team).fetchJoin()
+        .where(member.name.eq("m1"))
+        .fetchOne();
+    boolean loaded = emf.getPersistenceUnitUtil().isLoaded(findMember.getTeam());
+
+    assertThat(loaded).as("used fetchJoin()").isTrue();
   }
 }
