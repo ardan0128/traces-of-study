@@ -7,6 +7,7 @@ import com.example.jpastudy.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -18,6 +19,11 @@ public class MemberService {
 
   public Page<MemberTeamTaskDTO> findAllWithTeam(MemberSearchConditionDTO condition, Pageable pageable){
     Page<Member> members = memberRepository.findAllWithTeam(condition, pageable);
+    return members.map(MemberTeamTaskDTO::new);
+  }
+
+  public Slice<MemberTeamTaskDTO> findAllWithTeamSlice(MemberSearchConditionDTO condition, Pageable pageable){
+    Slice<Member> members = memberRepository.findAllWithTeamSlice(condition, pageable);
     return members.map(MemberTeamTaskDTO::new);
   }
 }

@@ -10,6 +10,8 @@ import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.SliceImpl;
 import org.springframework.data.jpa.repository.support.JpaEntityInformation;
 import org.springframework.data.jpa.repository.support.JpaEntityInformationSupport;
 import org.springframework.data.jpa.repository.support.Querydsl;
@@ -86,5 +88,19 @@ public abstract class Querydsl5RepositorySupport {
     JPAQuery countResult = countQuery.apply(getQueryFactory());
 
     return PageableExecutionUtils.getPage(content, pageable, countResult::fetchCount);
+  }
+
+  protected <T> Slice<T> applySlicing(Pageable pageable, Function<JPAQueryFactory, JPAQuery> contentQuery) {
+    JPAQuery jpaQuery = contentQuery.apply(getQueryFactory());
+    jpaQuery.offset(pageable.getOffset());
+    jpaQuery.limit(pageable.getPageSize() + 1);
+    List<T> content = getQuerydsl().applySorting(pageable.getSort(), jpaQuery).fetch();
+
+    boolean hasNext = false;
+    if (content.size() > pageable.getPageSize()) {
+      content.remove(pageable.getPageSize());
+      hasNext = true;
+    }
+    return new SliceImpl<>(content, pageable, hasNext);
   }
 }
