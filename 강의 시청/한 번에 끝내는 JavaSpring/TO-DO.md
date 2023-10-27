@@ -104,3 +104,14 @@
 2. Repositoey Interface 메소드 실습 (1)
 3. Repositoey Interface 메소드 실습 (2)
 4. SimpleJpaRepository 코드보기
+
+## 2023.10.27 강의 시청
+
+### Part 4. 안정적인 서비스를 위한 Spring Data와 Security - 스프링 시큐리티
+
+#### Ch 01. 강의소개
+
+1. 이 강의에 대하여
+2. gradle 프로젝트 구성
+3. 스프링 시큐리티란(1)
+4. 스프링 시큐리티란(2)
